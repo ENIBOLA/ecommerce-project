@@ -1,0 +1,30 @@
+{
+    "taskRoleArn": "arn:aws:iam::820776451548:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::820776451548:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "environment": [
+                {
+                    "name": "PORT",
+                    "value": "9001"
+                }
+            ],
+            "memory": 128,
+            "image": "pauloclouddev/flamencoapp
+            :latest",
+            "essential": true,
+            "portMappings": [
+                {
+                    "protocol": "tcp",
+                    "containerPort": 9001
+                }
+            ],
+            "name": "productapp"
+        }
+    ],
+    "family": "td-productapp",
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "networkMode": "awsvpc"
+}

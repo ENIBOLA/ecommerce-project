@@ -1,0 +1,39 @@
+{
+    "taskRoleArn": "arn:aws:iam::820776451548:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::820776451548:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+      {
+        "environment": [
+          {
+            "name": "PRODUCT_HOST",
+            "value": "<<productapp-host>>:9001"
+          },
+          {
+            "name": "OPERA_HOST",
+            "value": "<<paymentapp-host>>:9002"
+          },
+          {
+            "name": "PORT",
+            "value": "9000"
+          }
+        ],
+        "memoryReservation": 128,
+        "image": "pauloclouddev/musicboxapp
+        :latest",
+        "essential": true,
+        "portMappings": [
+          {
+            "hostPort": 0,
+            "protocol": "tcp",
+            "containerPort": 9000
+          }
+        ],
+        "name": "frontendapp"
+      }
+    ],
+    "family": "frontendapp",
+    "requiresCompatibilities": [
+      "EC2"
+    ],
+    "networkMode": "bridge"
+  }

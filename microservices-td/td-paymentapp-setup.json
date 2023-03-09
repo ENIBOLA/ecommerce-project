@@ -1,0 +1,30 @@
+{
+  "taskRoleArn": "arn:aws:iam::820776451548:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::820776451548:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+      {
+        "environment": [
+          {
+              "name": "PORT",
+              "value": "9002"
+          }
+        ],
+        "memory": 128,
+        "image": "pauloclouddev/operaapp
+        :latest",
+        "essential": true,
+        "portMappings": [
+              {
+                  "protocol": "tcp",
+                  "containerPort": 9002
+              }
+        ],
+        "name": "paymentapp"
+      }
+  ],
+  "family": "td-paymentapp",
+  "requiresCompatibilities": [
+      "EC2"
+  ],
+  "networkMode": "awsvpc"
+}
